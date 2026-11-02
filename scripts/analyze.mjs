@@ -1,0 +1,16 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { groupByCause, uniqueById } from '../src/lib/kb/causes.ts';
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const data=path.join(root,'src/lib/data');
+const raw=JSON.parse(fs.readFileSync(path.join(data,'reports-4471.json')));
+const tenants=new Map(fs.readdirSync(path.join(data,'tenants')).map(f=>JSON.parse(fs.readFileSync(path.join(data,'tenants',f)))).map(t=>[t.handle,t]));
+const all=uniqueById(raw);
+const merged=all.filter(r=>r.mergedInto===4471);
+const notes=JSON.parse(fs.readFileSync(path.join(data,'desk-notes.json')));
+const groups=groupByCause(merged,r=>tenants.get(r.tenant));
+const result={source:'src/lib/data/reports-4471.json',rawRows:raw.length,uniqueReports:all.length,repeatedRows:raw.length-all.length,ticketReports:merged.length,groups:groups.map(({reports,...g})=>({...g,count:reports.length,reportIds:reports.map(r=>r.id),unexplainedReportIds:reports.filter(r=>notes.oneDayMove.includes(r.id)).map(r=>r.id)}))};
+fs.mkdirSync(path.join(root,'evidence'),{recursive:true});
+fs.writeFileSync(path.join(root,'evidence/analysis.json'),JSON.stringify(result,null,2)+'\n');
+console.log(JSON.stringify({...result,groups:result.groups.map(({reportIds,...g})=>g)},null,2));

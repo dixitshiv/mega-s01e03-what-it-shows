@@ -1,0 +1,31 @@
+---
+layout: runbook
+title: '0002 · Merge only with evidence of the same cause'
+owner: dixitshiv
+status: proposed
+reviewed: '2026-11-01'
+signature: 'dixitshiv · S01E03 · 2026-11-01'
+---
+
+<script>
+  import DedupeExplorer from '#lib/kb/DedupeExplorer.svelte';
+  import RenderStamp from '#lib/kb/RenderStamp.svelte';
+</script>
+
+## Context
+
+[The review of #4471](/kb/incidents/4471-review) shows that a matching symptom does not imply one failing path. The rendered examples already compare cause while the old prose tells staff to compare subjects. [Accepted decision 0001](/kb/decisions/0001-dedupe-by-subject) stays unchanged as history.
+
+## Proposed replacement
+
+Read the report and look up its tenant locale and form. Merge only when there is evidence of the same cause and affected path. A subject match is a search aid. Neither a subject match nor an intake tag establishes a duplicate. When tenant data is missing or the symptoms conflict with the classifier, keep the report for investigation rather than guessing.
+
+<DedupeExplorer />
+
+## Consequences
+
+Triage requires reading and tenant lookup. It keeps separate fixes visible and gives engineering a count with evidence. Counts deduplicate by report ID. Record anomalies alongside their current assignment, and revise the assignment when investigation establishes a different cause.
+
+This record proposes replacing the subject-only rule. Desk approval is still required; its status does not claim that approval has happened.
+
+<RenderStamp {signature} />

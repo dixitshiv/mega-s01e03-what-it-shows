@@ -1,0 +1,55 @@
+---
+layout: runbook
+title: '#4471 review · separate the causes before merging'
+owner: dixitshiv
+status: reviewed
+reviewed: '2026-11-01'
+signature: 'dixitshiv · S01E03 · 2026-11-01'
+---
+
+<script>
+  import CauseTable from '#lib/kb/CauseTable.svelte';
+  import QueueTimeline from '#lib/kb/QueueTimeline.svelte';
+  import DedupeExplorer from '#lib/kb/DedupeExplorer.svelte';
+  import ReviewEvidence from '#lib/kb/ReviewEvidence.svelte';
+  import RenderStamp from '#lib/kb/RenderStamp.svelte';
+  import Callout from '#lib/kb/Callout.svelte';
+</script>
+
+The old incident prose says one issue with one fix queued. The rendered cause table contradicts it: reports with the same symptom reached the desk through different failing paths. The export is a snapshot, not a live desk feed. Re-read the current data before relying on these results.
+
+<Callout kind="warn">Known does not mean resolved. The parser fix cannot by itself correct a misleading booking form hint.</Callout>
+
+## Separate engineering work
+
+Engineering tickets: [shared parser](https://github.com/dixitshiv/mega-s01e03-what-it-shows/issues/1) and [booking-v3 hint](https://github.com/dixitshiv/mega-s01e03-what-it-shows/issues/2).
+
+**Shared parser — day-first input read month-first.** For a tenant whose locale writes day first, the shared parser reads dates month first. For example, Harbour Dental’s app report R-41200 describes 7 April appearing as 4 July. Use the tenant locale, preserve the intended calendar date, and verify generated invites and reminders. Check app, email and booking-v2 paths; a booking-v3 tenant’s app or email report still belongs here under the supplied classifier.
+
+**Booking-v3 hint — displayed format disagrees with the form reader.** The form prints `MM/DD/YYYY` but reads input in the tenant’s day-first order. Alder Physio, Copper Studio and Pale Harbour run this form. Copper Studio’s form report R-41230 describes 6 January appearing as 1 June even though intake called it parser. Make the hint, input validation and interpretation agree with the tenant locale. Fixing the shared parser alone leaves this path misleading.
+
+For regression checks, use an ambiguous date such as 6 January and an unambiguous day such as 23 January. Check both stored values and the invite recipients actually see; do not silently swap dates or infer intent from the browser locale.
+
+## What the components show
+
+<CauseTable ticket={4471} />
+
+<ReviewEvidence />
+
+## Queue history
+
+<QueueTimeline ticket={4471} />
+
+## How the desk should triage now
+
+Look up the tenant and booking form, read the body, and compare the failing path before merging. Same subject can hide different causes; different subjects can describe one cause. A missing tenant is insufficient evidence to merge. Read [the revised triage guide](/kb/triage/dedupe) and [decision 0002](/kb/decisions/0002-dedupe-by-cause); the accepted old decision remains as history.
+
+<DedupeExplorer />
+
+## What remains uncertain
+
+The cause table is an assignment rule, not a reproduction of the product bug. The desk-note reports above need direct investigation; one even describes an invite predating its booking. Capture intended date, stored date, timestamps, timezone, form and the received invite. Do not mark them resolved without checking their actual behavior.
+
+This review does not deploy a product fix. Keep both engineering issues open until their acceptance checks pass, and review incoming reports because the desk continues working after this export.
+
+<RenderStamp {signature} />

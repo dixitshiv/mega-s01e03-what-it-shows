@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><link href="../../_app/immutable/entry/start.D1HzdfF7.js" rel="modulepreload">
+		<link href="../../_app/immutable/entry/payload.DSmR2FwN.js" rel="modulepreload">
+		<link href="../../_app/immutable/chunks/CRzLMJPS.js" rel="modulepreload">
+		<link href="../../_app/immutable/chunks/CptVIHXj.js" rel="modulepreload">
+		<link href="../../_app/immutable/chunks/CHfFqfNT.js" rel="modulepreload">
+		<link href="../../_app/immutable/chunks/DQG8lHS1.js" rel="modulepreload">
+		<link href="../../_app/immutable/entry/app.CUFgOua2.js" rel="modulepreload">
+		<link href="../../_app/immutable/nodes/0.Izv2btRW.js" rel="modulepreload">
+		<link href="../../_app/immutable/chunks/DK3Fl9T5.js" rel="modulepreload">
+		<link href="../../_app/immutable/nodes/4.Dl6rGtIE.js" rel="modulepreload">
+		<link href="../../_app/immutable/chunks/CXlwds8H.js" rel="modulepreload">
+		<link href="../../_app/immutable/chunks/DkoUumqI.js" rel="modulepreload">
+		<link href="../../_app/immutable/chunks/BxJynscm.js" rel="modulepreload">
+		<link href="../../_app/immutable/chunks/BXWM2-hM.js" rel="modulepreload">
+		<link href="../../_app/immutable/chunks/499x6edU.js" rel="modulepreload">
+		<!--e2jw2j--><!----><title>0002 · Merge only with evidence of the same cause · support kb</title>
+		<link href="../../_app/immutable/assets/runbook.COyw0cbZ.css" rel="stylesheet">
+		<link href="../../_app/immutable/assets/DedupeExplorer.DO6Yid7X.css" rel="stylesheet">
+		<link href="../../_app/immutable/assets/RenderStamp.WePi3wDe.css" rel="stylesheet"></head><body data-sveltekit-preload-data="hover"><div style="display: contents"><!--[--><!--[--><!--[0--><!--[--><!--[--><!--[-1--><!--[--><div class="kb svelte-e2jw2j"><header><a class="crumb svelte-e2jw2j" href="/kb">support desk · kb</a> <h1 class="svelte-e2jw2j">0002 · Merge only with evidence of the same cause</h1> <p class="meta svelte-e2jw2j"><span>owner <b>dixitshiv</b></span> <span class="status proposed svelte-e2jw2j">proposed</span> <span class="svelte-e2jw2j">reviewed 2026-11-01 · 1 days ago</span></p></header> <!--[-1--><!--]--> <main><h2>Context</h2> <p><a href="/kb/incidents/4471-review">The review of #4471</a> shows that a matching symptom does not imply one failing path. The rendered examples already compare cause while the old prose tells staff to compare subjects. <a href="/kb/decisions/0001-dedupe-by-subject">Accepted decision 0001</a> stays unchanged as history.</p> <h2>Proposed replacement</h2> <p>Read the report and look up its tenant locale and form. Merge only when there is evidence of the same cause and affected path. A subject match is a search aid. Neither a subject match nor an intake tag establishes a duplicate. When tenant data is missing or the symptoms conflict with the classifier, keep the report for investigation rather than guessing.</p> <div class="try svelte-gq0h2h"><!--[--><fieldset class="svelte-gq0h2h"><legend>report A</legend> <select aria-label="tenant"><!--[--><option selected="">alder.physio</option><option>copper.studio</option><option>harbour.dental</option><option>kettle.books</option><option>lantern.row</option><option>long.table</option><option>morrow.tax</option><option>nine.lanterns</option><option>pale.harbour</option><option>ridge.clinic</option><option>stone.and.sons</option><!--]--></select> <select aria-label="channel"><!--[--><option>app</option><option>email</option><option selected="">form</option><!--]--></select> <input value="Booking on the wrong date" aria-label="subject"/> <code>hint</code></fieldset><fieldset class="svelte-gq0h2h"><legend>report B</legend> <select aria-label="tenant"><!--[--><option>alder.physio</option><option>copper.studio</option><option>harbour.dental</option><option selected="">kettle.books</option><option>lantern.row</option><option>long.table</option><option>morrow.tax</option><option>nine.lanterns</option><option>pale.harbour</option><option>ridge.clinic</option><option>stone.and.sons</option><!--]--></select> <select aria-label="channel"><!--[--><option>app</option><option>email</option><option selected="">form</option><!--]--></select> <input value="Booking on the wrong date" aria-label="subject"/> <code>parser</code></fieldset><!--]--> <p class="verdict svelte-gq0h2h">different causes — keep apart</p></div> <table><thead><tr><th>case</th><th>same subject</th><th>same cause</th></tr></thead><tbody><!--[--><tr><td>app vs email, same tenant</td><td>no</td><td class="svelte-gq0h2h dup">yes</td></tr><tr><td>same subject, same tenant, different channel</td><td>yes</td><td class="svelte-gq0h2h">no</td></tr><tr><td>same subject, same channel, different tenant</td><td>yes</td><td class="svelte-gq0h2h">no</td></tr><tr><td>different subject, same way in</td><td>no</td><td class="svelte-gq0h2h dup">yes</td></tr><tr><td>no tenant on file</td><td>yes</td><td class="svelte-gq0h2h">no</td></tr><!--]--></tbody></table><!----> <h2>Consequences</h2> <p>Triage requires reading and tenant lookup. It keeps separate fixes visible and gives engineering a count with evidence. Counts deduplicate by report ID. Record anomalies alongside their current assignment, and revise the assignment when investigation establishes a different cause.</p> <p>This record proposes replacing the subject-only rule. Desk approval is still required; its status does not claim that approval has happened.</p> <!--[0--><p class="stamp svelte-1280m42">desk ref <b class="svelte-1280m42">DR-8SEX-7X6R</b></p><!--]--><!----><!----></main> <footer class="svelte-e2jw2j">Pages are written by people. Tables and charts are built from data at render time.</footer></div><!--]--><!--]--><!--]--><!----><!--]--><!--]--><!--]--><!----> <!--[-1--><!--]--><!--]-->
+			
+			<script>
+				{
+					__sveltekit_k2bopd = {
+						base: new URL("../..", location).pathname.slice(0, -1),
+						version: "1793596534909"
+					};
+
+					const element = document.currentScript.parentElement;
+
+					import("../../_app/immutable/entry/start.D1HzdfF7.js").then(async (kit) => {
+						kit.init(__sveltekit_k2bopd);
+						const app = await import("../../_app/immutable/entry/app.CUFgOua2.js");
+						kit.start(app, element, {
+							node_ids: [0, 4],
+							data: [null,null],
+							form: null,
+							error: null
+						});
+					});
+				}
+			</script>
+		</div></body></html>

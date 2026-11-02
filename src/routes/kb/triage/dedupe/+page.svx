@@ -1,0 +1,33 @@
+---
+layout: runbook
+title: 'Triage: duplicate reports'
+owner: support desk
+status: review-proposed
+reviewed: '2026-11-01'
+---
+
+<script>
+  import DedupeExplorer from '#lib/kb/DedupeExplorer.svelte';
+  import Callout from '#lib/kb/Callout.svelte';
+</script>
+
+Keep one engineering ticket per established cause, with a deduplicated report count. Read the report and inspect tenant locale, booking form and channel before merging.
+
+## The rule needs replacement
+
+[Decision 0001](/kb/decisions/0001-dedupe-by-subject) accepted matching subjects in 2024. It is preserved as history. The rendered examples below contradict that shortcut: matching subjects can have different causes and different subjects can share one cause.
+
+[Proposed decision 0002](/kb/decisions/0002-dedupe-by-cause) documents the replacement; desk approval remains pending.
+
+1. Read the body and look up the tenant’s locale and form.
+2. Identify the failing path and compare it with an existing issue’s evidence.
+3. Merge only with evidence of the same cause; deduplicate report IDs when counting.
+4. Keep uncertain cases for investigation. A missing tenant is no basis for merging, even with identical subjects.
+
+<Callout kind="warn">An intake tag is a guess from browser locale. Use tenant data, and investigate descriptions that the cause classifier cannot explain.</Callout>
+
+## Try it
+
+<DedupeExplorer />
+
+See [the #4471 review](/kb/incidents/4471-review) for the counts, separate causes, queue history and unresolved anomalies.
