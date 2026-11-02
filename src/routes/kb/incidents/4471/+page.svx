@@ -2,7 +2,7 @@
 layout: runbook
 title: '#4471 · date reports need separate fixes'
 owner: support desk
-status: review-proposed
+status: closed
 reviewed: '2026-11-01'
 ---
 
@@ -20,7 +20,7 @@ See [the signed review](/kb/incidents/4471-review) for separate parser and booki
 counting evidence and reports that still need investigation.
 
 <Callout>
-Known symptoms remain unresolved. Separate the causes; a queued parser fix does not establish coverage of the booking form hint.
+The desk now reports #4471 closed on 5 October: parser fixed; hint not fixed because booking-v3 was retired. See the signed review for evidence and distinct closure outcomes.
 </Callout>
 
 ## What was merged

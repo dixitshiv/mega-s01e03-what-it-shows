@@ -25,3 +25,7 @@ Five included IDs — R-41202, R-41209, R-41236, R-41344, R-41620 — describe o
 - Check app/email paths for booking-v3 tenants too; the form hint is a separate issue.
 - Investigate and explicitly account for the five anomalous reports before closing this ticket.
 - Verify incoming reports after the export; a merge count or a queued fix does not show recovery.
+
+# Engineering outcome
+
+The [course desk update](https://hq.mega.dev/challenges/what-it-shows#engineering-update) marks #4471 closed on 5 October and parser FIXED: `fix(dates): parse dd/mm for eu locales`. Close this issue as completed on that evidence. We did not deploy the fix or independently reproduce it; the five anomalous bodies remain documented as an uncertainty.

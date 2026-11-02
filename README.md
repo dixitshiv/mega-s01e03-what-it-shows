@@ -53,3 +53,7 @@ The report counts are assignments from the supplied tenant/form/channel classifi
 
 - [Shared parser: 379 assigned reports](https://github.com/dixitshiv/mega-s01e03-what-it-shows/issues/1)
 - [Booking-v3 hint: 33 reports](https://github.com/dixitshiv/mega-s01e03-what-it-shows/issues/2)
+
+## Desk engineering outcome
+
+The course’s engineering update closes #4471 on 5 October: parser fixed (`fix(dates): parse dd/mm for eu locales`); hint not fixed because booking-v3 was retired. Issue 1 closes as completed and issue 2 as not planned. See `evidence/engineering-update.md`. This status comes from the desk; no product fix was deployed or independently reproduced here.

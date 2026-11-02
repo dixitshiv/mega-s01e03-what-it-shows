@@ -21,3 +21,7 @@ Open booking-v3 for a day-first tenant. For intended 6 January, enter `01/06/202
 - Check the stored booking and generated invite; show clear validation when input disagrees with the format.
 - Verify booking-v2 and app/email paths separately; they do not share this hint-specific assignment.
 - Keep this issue separate from the shared parser fix and review new reports after the snapshot.
+
+# Engineering outcome
+
+The [course desk update](https://hq.mega.dev/challenges/what-it-shows#engineering-update) marks #4471 closed on 5 October and hint WON'T FIX: booking-v3 form retired. Close this issue as not planned because the affected form was retired, not because its hint was corrected.

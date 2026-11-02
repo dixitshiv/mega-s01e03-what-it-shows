@@ -2,7 +2,7 @@
 layout: runbook
 title: '#4471 review · separate the causes before merging'
 owner: dixitshiv
-status: reviewed
+status: closed
 reviewed: '2026-11-01'
 signature: 'dixitshiv · S01E03 · 2026-11-01'
 ---
@@ -18,7 +18,11 @@ signature: 'dixitshiv · S01E03 · 2026-11-01'
 
 The old incident prose says one issue with one fix queued. The rendered cause table contradicts it: reports with the same symptom reached the desk through different failing paths. The export is a snapshot, not a live desk feed. Re-read the current data before relying on these results.
 
-<Callout kind="warn">Known does not mean resolved. The parser fix cannot by itself correct a misleading booking form hint.</Callout>
+<Callout>The course engineering update marks #4471 closed on 5 October: the parser was fixed; the hint was not fixed because booking-v3 was retired. These are different closure outcomes.</Callout>
+
+## Engineering outcome
+
+The [course desk update](https://hq.mega.dev/challenges/what-it-shows#engineering-update) reports the parser fixed by `fix(dates): parse dd/mm for eu locales`. [Issue 1](https://github.com/dixitshiv/mega-s01e03-what-it-shows/issues/1) closes as completed on that evidence. [Issue 2](https://github.com/dixitshiv/mega-s01e03-what-it-shows/issues/2) closes as not planned because booking-v3 was retired. Retirement is not a corrected hint. The historical export below predates this update and retains the original report assignments.
 
 ## Separate engineering work
 
@@ -50,6 +54,6 @@ Look up the tenant and booking form, read the body, and compare the failing path
 
 The cause table is an assignment rule, not a reproduction of the product bug. The desk-note reports above need direct investigation; one even describes an invite predating its booking. Capture intended date, stored date, timestamps, timezone, form and the received invite. Do not mark them resolved without checking their actual behavior.
 
-This review does not deploy a product fix. Keep both engineering issues open until their acceptance checks pass, and review incoming reports because the desk continues working after this export.
+This review does not deploy or independently verify a product fix. Closure follows the desk’s engineering update, not a local reproduction. Review incoming reports and investigate the unexplained bodies because the desk continues working after this export.
 
 <RenderStamp {signature} />
