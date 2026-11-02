@@ -4,7 +4,7 @@ title: '0002 · Merge only with evidence of the same cause'
 owner: dixitshiv
 status: proposed
 reviewed: '2026-11-01'
-signature: 'dixitshiv · S01E03 · 2026-11-01'
+signature: "v1.eyJzdWIiOiIyNTQyIiwiYXVkIjoiY2hhbGxlbmdlOndoYXQtaXQtc2hvd3MiLCJpYXQiOjE3OTM1OTY2OTIsImV4cCI6MTc5MzY4MzA5Mn0.unmc5dNHkVF7jdodweAb0wv0VYnzuCSDOs0ndBELWrA"
 ---
 
 <script>
